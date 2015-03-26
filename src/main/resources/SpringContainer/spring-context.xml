@@ -1,0 +1,40 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Boxes-->
+
+    <bean id="blackBox" class="ru.blogspot.feomatr.lab.spring.buildings.Box">
+        <property name="description" value="Use property based bean definition"/>
+        <property name="square" value="10"/>
+    </bean>
+
+    <bean id="whiteBox" class="ru.blogspot.feomatr.lab.spring.buildings.Box">
+        <constructor-arg type="java.lang.String" value="Use Constructor based bean definition"/>
+        <constructor-arg type="int" value="8"/>
+    </bean>
+
+    <bean id="redBox" class="ru.blogspot.feomatr.lab.spring.buildings.Box" init-method="init">
+        <constructor-arg index="0">
+            <list>
+                <value type="java.lang.String">Use Constructor with List interface</value>
+                <value type="java.lang.String">13</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+    <bean id="springContainer" class="ru.blogspot.feomatr.lab.spring.SpringContainer">
+        <constructor-arg index="0" ref="blackBox"/>
+        <constructor-arg index="1" ref="whiteBox"/>
+        <constructor-arg index="2" ref="redBox"/>
+    </bean>
+
+    <bean id="beanFromFactoryMethod" class="ru.blogspot.feomatr.lab.spring.SpringContainer" factory-method="newBox">
+        <constructor-arg index="0" type="String" value="Factory Bean"/>
+        <constructor-arg index="1" type="int" value="20"/>
+    </bean>
+
+    <bean id="stringFromBean" factory-bean="redBox" factory-method="toString"/>
+
+</beans>
