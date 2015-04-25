@@ -9,9 +9,8 @@ import org.apache.commons.io.filefilter.EmptyFileFilter;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.util.function.Consumer;
 
 /**
  * Created by feo on 26.03.15.
@@ -29,7 +28,7 @@ public class SyncDoc {
 
         subDirs = getListOfDirectories(dir);
         subDirs2 = getListOfDirectories(dir2);
-
+        testSort(subDirs2);
         for (int i = 0; i < names.length; i++) {
             setDocType(names[i]);
             Collection<File> docTypeFile = Collections2.filter(subDirs, getDocTypePredicat() );
@@ -72,6 +71,34 @@ public class SyncDoc {
         return result;
     }
 
+    static void testSort(List<File> subDir){
+        List<File> subdir1 = new ArrayList<File>(subDir.subList(0, 20));
+        List<File> subdir2 = new ArrayList<File>(subDir.subList(0, 20));
+
+        Collections.sort(subdir2, new Comparator<File>() {
+            public int compare(File o1, File o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+        String format = "%1$20s   |   %2$20s";
+        System.out.println(String.format(format, "natural", "ordered"));
+        for (int i = 0; i < subdir1.size(); i++) {
+//            System.out.println( subdir1.get(i).getName() + " , "+ subdir2.get(i).getName());
+            System.out.println(String.format(format, subdir1.get(i).getName(), subdir2.get(i).getName()));
+        }
+
+
+//        System.out.println(String.format("%d", Calendar.getInstance()));
+
+        //java 1.8
+        subdir2.forEach(new Consumer<File>() {
+            public void accept(File file) {
+                System.out.println(file.getName());
+            }
+        });
+//        System.out.println("subDirs2 = " + subdir2);
+
+    }
     public static String getDocType() {
         return docType;
     }
