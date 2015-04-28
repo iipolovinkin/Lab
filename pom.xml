@@ -140,6 +140,12 @@
             <version>${commons-collections.version}</version>
         </dependency>
 
+		<dependency>
+			<groupId>org.fluentjava</groupId>
+			<artifactId>fluentjava</artifactId>
+			<version>0.3</version>
+		</dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
