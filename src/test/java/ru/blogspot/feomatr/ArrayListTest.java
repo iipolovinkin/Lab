@@ -5,59 +5,126 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.core.IsCollectionContaining.hasItem;
-import static org.hamcrest.core.IsCollectionContaining.hasItems;
-import static org.hamcrest.core.IsNot.not;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.hamcrest.collection.IsEmptyCollection.empty;
 import static org.junit.Assert.*;
 
+
 /**
- * TODO: comment
+ * Test for ArrayLists's method
+ * <tt>public boolean remove(Object o)</tt>
  *
- * @author feo
- * @since 17.06.2015
+ * @author polovinkin.igor 17.06.2015
  */
 public class ArrayListTest {
+
     private ArrayList arrayList;
+    private ArrayList expectedArrayList;
+
+    private String one = "one";
+    private String two = "two";
+    private Object three = "three";
 
     @Before
     public void setUp() throws Exception {
         arrayList = new ArrayList();
+        expectedArrayList = new ArrayList();
     }
 
     @Test
     public void testRemoveObjectFromEmptyArrayList() {
-        boolean actual = arrayList.remove(new Object());
+        Object someObject = new Object();
+        boolean actual = arrayList.remove(someObject);
 
-        assertFalse(actual);
+        assertThat(arrayList, empty());
     }
 
     @Test
-    public void testRemoveExistObjectFromArrayList_Valid() throws Exception {
-        String one = "one";
-        String two = "two";
-        String three = "three";
+    public void testRemoveNullFromArrayList() {
+        arrayList.addAll(Arrays.asList(one, two, three));
 
-        arrayList.add(one);
-        arrayList.add(two);
-        arrayList.add(three);
+        arrayList.remove(null);
 
-        boolean actual = arrayList.remove(two);
+        assertThat(arrayList, hasSize(3));
+    }
+
+    @Test
+    public void testRemoveObjectFromArrayListWhichDoesNotContainElement() {
+        arrayList.addAll(Arrays.asList(one, two, three));
+        expectedArrayList.addAll(arrayList);
+        Object someObject = new Object();
+
+        arrayList.remove(someObject);
+
+        assertThat(arrayList, is(expectedArrayList));
+    }
+
+    @Test
+    public void testRemoveObjectFromArrayListWhichHasElement() throws Exception {
+        arrayList.addAll(Arrays.asList(one, two, three));
+
+        arrayList.remove(two);
+
+        assertThat(arrayList, is(Arrays.asList(one, three)));
+    }
+
+    @Test
+    public void testRemoveObjectFromArrayListWhichHasElementAtFirstPosition() throws Exception {
+        arrayList.addAll(Arrays.asList(one, two, three));
+
+        arrayList.remove(one);
+
+        assertThat(arrayList, is(Arrays.asList(two, three)));
+    }
+
+    @Test
+    public void testRemoveObjectFromArrayListWhichHasElementAtLastPosition() throws Exception {
+        arrayList.addAll(Arrays.asList(one, two, three));
+
+        arrayList.remove(three);
+
+        assertThat(arrayList, is(Arrays.asList(one, two)));
+    }
+
+
+    @Test
+    public void testRemoveObjectFromArrayListWHichHasOnlyOneElement() throws Exception {
+        arrayList.add("xxx");
+
+        arrayList.remove("xxx");
+
+        assertThat(arrayList, empty());
+    }
+
+
+    @Test
+    public void testRemoveObjectFromArrayListWhichHasFourSuchElements() throws Exception {
+        arrayList.addAll(Arrays.asList(one, two, three, one, one, one));
+        expectedArrayList.addAll(Arrays.asList(two, three, one, one, one));
+
+        arrayList.remove(one);
+
+        assertThat(arrayList, is(expectedArrayList));
+    }
+
+    @Test
+    public void testRemoveObjectFromArrayListIfSuccessReturnTrue() throws Exception {
+        arrayList.addAll(Arrays.asList(one, two, three));
+
+        boolean actual = arrayList.remove(three);
 
         assertTrue(actual);
-        assertFalse(arrayList.contains(two));
-//        System.out.println(arrayList);
-//        assertThat(arrayList, hasItem(three));
-//        assertThat(Arrays.asList(three, one), hasItem(three));
+    }
 
-//        int actualSize = arrayList.size();
-//        int expectedSize = 2;
-//
-//        assertThat("three", equalTo(arrayList.get(1)));
-//        assertThat(arrayList, is(not(hasItem("one"))));
+    @Test
+    public void testRemoveObjectFromArrayListIfUnsuccessReturnFalse() throws Exception {
+        arrayList.addAll(Arrays.asList(one, two, three));
+
+        boolean actual = arrayList.remove("four");
+
+        assertFalse(actual);
     }
 
 }
