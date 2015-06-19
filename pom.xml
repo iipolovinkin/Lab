@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ru.blogspot.feomatr</groupId>
@@ -13,16 +13,16 @@
 	<properties>
 		<junit.version>4.10</junit.version>
 		<hamcrest.version>1.3</hamcrest.version>
-		<java-version>1.8</java-version>
+		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<joda.time.version>2.4</joda.time.version>
 		<org.slf4j.version>1.6.6</org.slf4j.version>
 		<pivot.version>2.0.4</pivot.version>
 
-        <commons-io.version>2.4</commons-io.version>
-        <commons-lang3.version>3.3.2</commons-lang3.version>
-        <commons-collections.version>3.2</commons-collections.version>
-        <guava.version>10.0.1</guava.version>
+		<commons-io.version>2.4</commons-io.version>
+		<commons-lang3.version>3.3.2</commons-lang3.version>
+		<commons-collections.version>3.2</commons-collections.version>
+		<guava.version>10.0.1</guava.version>
 
 		<jetbrains.annotations.version>12.0</jetbrains.annotations.version>
 		<xstream.version>1.4.7</xstream.version>
@@ -31,10 +31,11 @@
 		<jaxb-impl.version>2.1.14</jaxb-impl.version>
 		<jaxb-xjc.version>2.1.14</jaxb-xjc.version>
 
-        <lombok.version>1.14.8</lombok.version>
+		<lombok.version>1.14.8</lombok.version>
 
-        <springframework.version>4.1.5.RELEASE</springframework.version>
+		<springframework.version>4.1.5.RELEASE</springframework.version>
 
+		<maven.compiler.plugin.version>2.5.1</maven.compiler.plugin.version>
 	</properties>
 
 	<dependencies>
@@ -49,12 +50,12 @@
 			<version>${org.slf4j.version}</version>
 			<scope>runtime</scope>
 		</dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${org.slf4j.version}</version>
-            <scope>runtime</scope>
-        </dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
@@ -123,28 +124,28 @@
 			<version>${jaxb-xjc.version}</version>
 		</dependency>
 
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
 
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>${commons-io.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${commons-lang3.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
 
-        <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
-            <version>${commons-collections.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>${commons-collections.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.fluentjava</groupId>
@@ -152,25 +153,25 @@
 			<version>0.3</version>
 		</dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
 
-        <!-- Spring -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${springframework.version}</version>
-            <exclusions>
-                <!-- Exclude Commons Logging in favor of SLF4j -->
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${springframework.version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 
 		<dependency>
 			<groupId>com.fifesoft</groupId>
@@ -179,4 +180,22 @@
 		</dependency>
 
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<compilerArgument>-Xlint:all</compilerArgument>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
