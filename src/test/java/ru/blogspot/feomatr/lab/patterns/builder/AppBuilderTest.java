@@ -10,7 +10,7 @@ public class AppBuilderTest {
 
     @Test
     public void test() throws Exception {
-        String[] args = null;
+        String[] args = {};
         AppBuilder.main(args);
     }
 }

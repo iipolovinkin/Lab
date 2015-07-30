@@ -10,7 +10,7 @@ public class AppFactoryMethodTest {
 
     @Test
     public void testMain() throws Exception {
-        String[] args = null;
+        String[] args = {};
         AppFactoryMethod.main(args);
     }
 }
