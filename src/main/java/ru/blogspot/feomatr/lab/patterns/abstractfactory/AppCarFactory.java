@@ -13,12 +13,14 @@ import ru.blogspot.feomatr.lab.patterns.abstractfactory.products.Transmission;
  */
 public class AppCarFactory {
     public static void main(String[] args) {
-        createCar(new VazCarFactoryImpl());
+        AppCarFactory appCarFactory = new AppCarFactory();
+
+        appCarFactory.createCar(new VazCarFactoryImpl());
         System.out.println();
-        createCar(new BmwCarFactoryImpl());
+        appCarFactory.createCar(new BmwCarFactoryImpl());
     }
 
-    private static void createCar(CarFactory carFactory) {
+    private void createCar(CarFactory carFactory) {
         Body body = carFactory.createBody();
         Engine engine = carFactory.createEngine();
         Chassis chassis = carFactory.createChassis();
