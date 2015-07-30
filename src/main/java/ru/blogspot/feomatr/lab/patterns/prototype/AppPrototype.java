@@ -3,7 +3,7 @@ package ru.blogspot.feomatr.lab.patterns.prototype;
 import java.util.Arrays;
 
 /**
- * Prototype. The excample create new instances by cloning objects.
+ * Prototype. The example create new instances by cloning objects.
  *
  * @author iipolovinkin
  * @since 30.07.2015
