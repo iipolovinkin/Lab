@@ -9,7 +9,7 @@ import java.util.Formatter;
 /**
  * TODO: comment
  *
- * @author feo
+ * @author iipolovinkin
  * @since 25.04.2015
  */
 public class StringDemo {

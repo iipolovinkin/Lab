@@ -174,7 +174,7 @@ public class ArrayListTest {
     }
 
     @Test
-    public void testWhenRemoveCharThenRemoveElementObject() throws Exception {
+    public void testWhenRemoveLongThenRemoveElementObject() throws Exception {
         arrayList.addAll(Arrays.asList(one, two, three));
         expectedArrayList.addAll(arrayList);
         long l = 1;
