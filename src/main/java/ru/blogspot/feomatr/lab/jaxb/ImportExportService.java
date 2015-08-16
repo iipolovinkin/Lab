@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.File;
 import java.util.List;
 
@@ -18,7 +17,6 @@ import java.util.List;
  * @author iipolovinkin
  * @since 16.08.2015
  */
-@XmlRootElement
 public class ImportExportService {
     private static final Logger log = LoggerFactory.getLogger(ImportExportService.class);
 
@@ -51,6 +49,22 @@ public class ImportExportService {
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
             result = (Foo) unmarshaller.unmarshal(file);
+
+            return result;
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+        System.out.println("fail!");
+        return null;
+    }
+
+    public MyHashMapType readClearMapFromFile(File file) {
+        MyHashMapType result = new MyHashMapType();
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(MyHashMapType.class);
+            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+
+            result = (MyHashMapType) unmarshaller.unmarshal(file);
 
             return result;
         } catch (JAXBException e) {

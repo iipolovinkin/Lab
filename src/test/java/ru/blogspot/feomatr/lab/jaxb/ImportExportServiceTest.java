@@ -2,7 +2,6 @@ package ru.blogspot.feomatr.lab.jaxb;
 
 import com.google.common.collect.Maps;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.File;
@@ -22,11 +21,7 @@ public class ImportExportServiceTest {
     private ImportExportService importExportService;
     private String OneItemXml = "src/main/resources/jaxb/OneItem.xml";
     private String MapItemXml = "src/main/resources/jaxb/MapItem.xml";
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-
-    }
+    private String MapItemWithoutFoo = "src/main/resources/jaxb/MapItemWithoutFoo.xml";
 
     @Before
     public void setUp() throws Exception {
@@ -56,6 +51,20 @@ public class ImportExportServiceTest {
         Foo actual = importExportService.readMapFromFile(file);
 
         assertThat(actual.toString(), is(expected.toString()));
+
+    }
+
+    @Test
+    public void testReadClearMapFromFile() throws Exception {
+        File file = new File(MapItemWithoutFoo);
+        HashMap expected = Maps.newHashMap();
+        expected.put(123, "this is a value");
+        expected.put(312, "this is another value");
+        expected.put(576, "this is another value");
+
+        MyHashMapType actual = importExportService.readClearMapFromFile(file);
+
+        assertThat(actual.getEntry(), is(expected.entrySet()));
 
     }
 }

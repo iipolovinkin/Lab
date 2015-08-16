@@ -4,7 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author iipolovinkin
@@ -25,7 +28,7 @@ public class MyHashMapAdapter extends XmlAdapter<MyHashMapType, HashMap> {
     @Override
     public MyHashMapType marshal(HashMap v) throws Exception {
         MyHashMapType m = new MyHashMapType();
-        List<MyHashMapType.MyHashMapEntryType> entries = new ArrayList<>();
+        Set<MyHashMapType.MyHashMapEntryType> entries = new HashSet<>();
         Set<Map.Entry> set = v.entrySet();
         System.out.println("hello mars");
         for (Map.Entry entry : set) {
