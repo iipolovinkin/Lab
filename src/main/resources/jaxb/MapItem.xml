@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<foo>
+    <hashMap>
+        <entry key="123">this is a value</entry>
+        <entry key="312">this is another value</entry>
+        <entry key="576">this is another value</entry>
+    </hashMap>
+</foo>

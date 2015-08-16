@@ -6,6 +6,6 @@ package ru.blogspot.feomatr.lab.jaxb;
 public class DemoJAXB {
 
     public static void main(String[] args) {
-
+        // see ImportExportServiceTest
     }
 }
