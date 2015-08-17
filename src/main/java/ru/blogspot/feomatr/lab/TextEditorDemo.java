@@ -1,6 +1,6 @@
 package ru.blogspot.feomatr.lab;
 
-import com.google.common.collect.Maps;
+import com.google.common.collect.ImmutableMap;
 import org.apache.commons.io.FileUtils;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
-import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.dnd.DnDConstants;
@@ -22,8 +21,6 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Vector;
 
-import static org.fluentjava.FluentUtils.map;
-import static org.fluentjava.FluentUtils.pair;
 
 /**
  * @author polovinkin.igor 22.04.2015 16:38
@@ -42,6 +39,7 @@ public class TextEditorDemo extends JFrame {
         cp.add("North", jToolBar);
 
         textArea.setDropTarget(new DropTarget() {
+            @Override
             public synchronized void drop(DropTargetDropEvent evt) {
                 try {
                     evt.acceptDrop(DnDConstants.ACTION_COPY);
@@ -74,11 +72,12 @@ public class TextEditorDemo extends JFrame {
     }
 
     private JToolBar getToolBar(final RSyntaxTextArea textArea) {
-        final Map<String, String> snippets = map(
-                pair(SyntaxConstants.SYNTAX_STYLE_XML, "<root>\n\t<head>\n\t<body>\n\t</body>\n\t</head>\n</root>"),
-                pair(SyntaxConstants.SYNTAX_STYLE_JAVA, "\npublic static void main(String[] args){ \n return; \n}"),
-                pair(SyntaxConstants.SYNTAX_STYLE_HTML, "<html>\n<head>\nHello</head>\n<body>Text</br> is! \n</body>\n</html>"),
-                pair(SyntaxConstants.SYNTAX_STYLE_SQL, "\nselect * from employee \n where id =100;"));
+        final Map<String, String> snippets = new ImmutableMap.Builder()
+                .put(SyntaxConstants.SYNTAX_STYLE_XML, "<root>\n\t<head>\n\t<body>\n\t</body>\n\t</head>\n</root>")
+                .put(SyntaxConstants.SYNTAX_STYLE_JAVA, "\npublic static void main(String[] args){ \n return; \n}")
+                .put(SyntaxConstants.SYNTAX_STYLE_HTML, "<html>\n<head>\nHello</head>\n<body>Text</br> is! \n</body>\n</html>")
+                .put(SyntaxConstants.SYNTAX_STYLE_SQL, "\nselect * from employee \n where id =100;")
+                .build();
 
         JButton copyText = new JButton("copyText");
 //        copyText.setSize(30, 30);
@@ -92,7 +91,7 @@ public class TextEditorDemo extends JFrame {
         jToolBar.add(pomButton);
         final JComboBox<String> style = new JComboBox<>();
         style.setModel(new DefaultComboBoxModel<String>(new Vector<String>(snippets.keySet())));
-        style.setSize(30,40);
+        style.setSize(30, 40);
 
         style.addActionListener(new ActionListener() {
             @Override
@@ -147,6 +146,7 @@ public class TextEditorDemo extends JFrame {
     public static void main(String[] args) {
         // Start all Swing applications on the EDT.
         SwingUtilities.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new TextEditorDemo().setVisible(true);
             }
