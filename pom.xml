@@ -173,6 +173,12 @@
 			<version>2.5.6</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.googlecode</groupId>
+			<artifactId>kryo</artifactId>
+			<version>1.04</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
