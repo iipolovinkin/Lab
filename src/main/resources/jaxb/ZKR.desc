@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<docschema xmlns="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" desc="DOC DESC" id="ZRR">
+
+	<defs>
+		<fieldset-def table="TABLE_LIST_TYPE1" type="List_Type1">
+			<field desc="DESC" id="field1" type="INTEGER"/>
+			<field desc="DESC" id="field2" length="25" type="STRING"/>
+			<field desc="DESC" id="field3" length="2000" type="STRING"/>
+		</fieldset-def>
+
+		<fieldset-def table="TABLE_LIST_TYPE2" type="List_Type2">
+			<field desc="descrpition" id="field11" length="50" type="STRING"/>
+			<field desc="descrpition" id="field12" length="45" type="STRING"/>
+			<field desc="descrpition" id="field13" type="DATE"/>
+			<field desc="descrpition" id="field14" length="512" type="STRING"/>
+		</fieldset-def>
+	</defs>
+
+	<content table="DC_ZRR">
+		<table id="List1" type="List_Type1" desc="desc"/>
+		<table id="List2" type="List_Type2" desc="desc"/>
+
+		<nested-fieldset desc="Документ" id="DOC">
+			<field desc="descrpition" id="field20" type="DECIMAL"/>
+			<field desc="descrpition" id="field21" length="14" type="STRING"/>
+			<field desc="descrpition" id="field22" type="BOOLEAN"/>
+			<field desc="descrpition" id="field23" type="STRING" length="2000"/>
+			<field desc="descrpition" id="field24" type="STRING" length="200"/>
+
+			<field desc="Признак наличия подписи" id="field25" length="1" type="BOOLEAN"/>
+		</nested-fieldset>
+	</content>
+</docschema>
