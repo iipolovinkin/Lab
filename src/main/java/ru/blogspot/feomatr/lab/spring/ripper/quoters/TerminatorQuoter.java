@@ -1,5 +1,7 @@
 package ru.blogspot.feomatr.lab.spring.ripper.quoters;
 
+import javax.annotation.PostConstruct;
+
 /**
  * @author iipolovinkin
  * @since 04.10.2015
@@ -9,8 +11,14 @@ public class TerminatorQuoter implements Quoter {
 	private int repeat;
 	private String message;
 
-	public TerminatorQuoter() {
+	@PostConstruct
+	public void init() {
+		System.out.println("Phase 2");
 		System.out.println(repeat);
+	}
+
+	public TerminatorQuoter() {
+		System.out.println("Phase 1");
 	}
 
 	@Override
