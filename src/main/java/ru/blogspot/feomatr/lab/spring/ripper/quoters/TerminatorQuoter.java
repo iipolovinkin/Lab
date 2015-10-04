@@ -9,6 +9,10 @@ public class TerminatorQuoter implements Quoter {
 	private int repeat;
 	private String message;
 
+	public TerminatorQuoter() {
+		System.out.println(repeat);
+	}
+
 	@Override
 	public void sayQuote() {
 		for (int i = 0; i < repeat; i++) {
