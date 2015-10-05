@@ -10,6 +10,8 @@
     <!--infractructural bean no needs id-->
     <bean class="ru.blogspot.feomatr.lab.spring.ripper.quoters.InjectRandomIntAnnotationBeanPostProcessor"/>
 
+    <bean class="ru.blogspot.feomatr.lab.spring.ripper.quoters.ProfilingHandlerBeanPostProcessor"/>
+
     <bean class="ru.blogspot.feomatr.lab.spring.ripper.quoters.TerminatorQuoter" id="terminatorQuoter">
         <property name="message" value="I'll be back"/>
     </bean>

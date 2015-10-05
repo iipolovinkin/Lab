@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
  * @author iipolovinkin
  * @since 04.10.2015
  */
+@Profiling
 public class TerminatorQuoter implements Quoter {
 	@InjectRandomInt(min = 2, max = 7)
 	private int repeat;

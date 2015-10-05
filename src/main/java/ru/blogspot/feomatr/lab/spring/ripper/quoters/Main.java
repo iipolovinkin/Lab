@@ -1,7 +1,8 @@
 package ru.blogspot.feomatr.lab.spring.ripper.quoters;
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import static java.lang.Thread.sleep;
 
 /**
  * @author iipolovinkin
@@ -9,8 +10,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("SpringContainer/ripper/context.xml");
-		context.getBean(TerminatorQuoter.class).sayQuote();
+		while (true) {
+			context.getBean(Quoter.class).sayQuote();
+			sleep(1000);
+		}
 	}
 }
