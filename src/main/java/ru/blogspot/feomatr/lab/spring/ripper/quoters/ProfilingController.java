@@ -5,7 +5,7 @@ package ru.blogspot.feomatr.lab.spring.ripper.quoters;
  * @since 05.10.2015
  */
 public class ProfilingController implements ProfilingControllerMBean {
-	private boolean enabled;
+	private boolean enabled = true;
 
 	public boolean isEnabled() {
 		return enabled;
