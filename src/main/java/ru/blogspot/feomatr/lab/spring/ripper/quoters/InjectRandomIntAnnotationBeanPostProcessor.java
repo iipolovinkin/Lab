@@ -8,6 +8,7 @@ import java.lang.reflect.Field;
 import java.util.Random;
 
 /**
+ * Inject value to object field before bean initialization.
  * @author iipolovinkin
  * @since 05.10.2015
  */
