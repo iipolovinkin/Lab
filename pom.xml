@@ -34,6 +34,7 @@
 		<lombok.version>1.14.8</lombok.version>
 
 		<springframework.version>4.1.5.RELEASE</springframework.version>
+		<postgresql.version>9.4-1202-jdbc4</postgresql.version>
 
 		<maven.compiler.plugin.version>2.5.1</maven.compiler.plugin.version>
 	</properties>
@@ -177,6 +178,12 @@
 			<groupId>com.googlecode</groupId>
 			<artifactId>kryo</artifactId>
 			<version>1.04</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}}</version>
 		</dependency>
 
 	</dependencies>
