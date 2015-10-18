@@ -37,7 +37,7 @@ public class JDBCDemo {
 
 	public static Map<String, Map<String, String>> getColumnDefinitions(String[] args) {
 		Map<String, Map<String, String>> map = new HashMap<>();
-		String dbSettings = "src/main/resources/jdbc/postgres.properties";
+		String dbSettings = "src/main/resources/jdbc/local.properties";
 		try {
 			Connection connection = intializeConnection(dbSettings);
 			if (connection == null) {
