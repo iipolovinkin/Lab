@@ -51,7 +51,6 @@ public class ImportExportServiceTest {
         Foo actual = importExportService.readMapFromFile(file);
 
         assertThat(actual.toString(), is(expected.toString()));
-
     }
 
     @Test
@@ -65,6 +64,5 @@ public class ImportExportServiceTest {
         MyHashMapType actual = importExportService.readClearMapFromFile(file);
 
         assertThat(actual.getEntry(), is(expected.entrySet()));
-
     }
 }

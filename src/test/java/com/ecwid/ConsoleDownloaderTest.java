@@ -17,8 +17,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 /**
- * TODO: comment
- *
  * @author iipolovinkin
  * @since 25.08.2015
  */
@@ -85,6 +83,5 @@ public class ConsoleDownloaderTest {
 
         assertThat(actualChecksum, is(expectedChecksum));
     }
-
 
 }
