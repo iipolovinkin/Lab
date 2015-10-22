@@ -5,10 +5,9 @@ import lombok.ToString;
 import java.util.List;
 
 /**
- * Created by feo on 03.03.15.
+ * Created by iipolovinkin on 03.03.15.
  */
 
-@ToString
 public class Box {
     private String description;
     private int square;

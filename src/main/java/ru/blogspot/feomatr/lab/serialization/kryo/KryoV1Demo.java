@@ -6,27 +6,25 @@ import org.slf4j.LoggerFactory;
 import java.nio.ByteBuffer;
 
 /**
- * TODO: comment
- * <p>
  * https://code.google.com/p/kryo/wiki/V1Documentationr
  *
  * @author iipolovinkin
  * @since 04.06.2015
  */
 public class KryoV1Demo {
-    private static final Logger log = LoggerFactory.getLogger(KryoV1Demo.class);
+	private static final Logger log = LoggerFactory.getLogger(KryoV1Demo.class);
 
-    public static void main(String[] args) {
-        KryoV1 kryo = new KryoV1();
+	public static void main(String[] args) {
+		KryoV1 kryo = new KryoV1();
 //        do not need register Integer.class. Class is registered by defaul.
 //        kryo.register(Integer.class);
-        Integer I = new Integer(100);
-        ByteBuffer buffer = ByteBuffer.allocate(256);
+		Integer I = 100;
+		ByteBuffer buffer = ByteBuffer.allocate(256);
 //        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        kryo.writeObject(buffer, I);
-        buffer.flip();
+		kryo.writeObject(buffer, I);
+		buffer.flip();
 
-        Integer o = kryo.readObject(buffer, Integer.class);
-        System.out.println("o = " + o);
-    }
+		Integer o = kryo.readObject(buffer, Integer.class);
+		System.out.println("o = " + o);
+	}
 }

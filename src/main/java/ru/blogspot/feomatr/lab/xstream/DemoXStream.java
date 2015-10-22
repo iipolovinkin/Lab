@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 
 /**
- * Created by feo on 04.01.15.
+ * Created by iipolovinkin on 04.01.15.
  */
 public class DemoXStream {
 

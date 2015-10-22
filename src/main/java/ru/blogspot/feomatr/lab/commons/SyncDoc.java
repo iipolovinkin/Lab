@@ -13,7 +13,7 @@ import java.util.*;
 import java.util.function.Consumer;
 
 /**
- * Created by feo on 26.03.15.
+ * Created by iipolovinkin on 26.03.15.
  */
 public class SyncDoc {
     private static List<File> subDirs;
@@ -76,6 +76,7 @@ public class SyncDoc {
         List<File> subdir2 = new ArrayList<File>(subDir.subList(0, 20));
 
         Collections.sort(subdir2, new Comparator<File>() {
+            @Override
             public int compare(File o1, File o2) {
                 return o1.getName().compareTo(o2.getName());
             }
@@ -92,6 +93,7 @@ public class SyncDoc {
 
         //java 1.8
         subdir2.forEach(new Consumer<File>() {
+            @Override
             public void accept(File file) {
                 System.out.println(file.getName());
             }

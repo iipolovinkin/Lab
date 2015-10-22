@@ -6,7 +6,7 @@ import com.thoughtworks.xstream.annotations.XStreamConverters;
 import java.util.Arrays;
 
 /**
-* Created by feo on 02.01.15.
+* Created by iipolovinkin on 02.01.15.
 */
 public class EmployeeWithAttributes extends  Employee{
     @XStreamAsAttribute

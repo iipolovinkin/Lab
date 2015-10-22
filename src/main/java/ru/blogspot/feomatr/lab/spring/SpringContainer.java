@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.blogspot.feomatr.lab.spring.buildings.Box;
 
 /**
- * Created by feo on 03.03.15.
+ * Created by iipolovinkin on 03.03.15.
  */
 public class SpringContainer {
 

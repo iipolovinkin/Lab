@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * Created by feo on 25.11.14.
+ * Created by iipolovinkin on 25.11.14.
  */
 public class JavaBXML implements  Application {
     private Window window = null;
@@ -20,8 +20,7 @@ public class JavaBXML implements  Application {
     public void startup(Display display, Map<String, String> properties)
             throws Exception {
         BXMLSerializer bxmlSerializer = new BXMLSerializer();
-        String fn = "/home/feo/IdeaProjects/Lab/hello.bxml";
-        fn = "src/main/resources/hello.bxml";
+        String fn = "src/main/resources/BXML/hello.bxml";
         InputStream ips = new FileInputStream(fn);
         window = (Window)bxmlSerializer.readObject(ips);
         window.open(display);

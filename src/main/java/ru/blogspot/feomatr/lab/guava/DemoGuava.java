@@ -15,7 +15,7 @@ import static com.google.common.collect.Lists.transform;
 
 
 /**
- * Created by feo on 19.02.15.
+ * Created by iipolovinkin on 19.02.15.
  */
 public class DemoGuava {
     public static void main(String[] args) {
@@ -55,7 +55,9 @@ public class DemoGuava {
 //                            }
 //                        });
 
-        for (String bird : birds) System.out.println(bird);
+        for (String bird : birds){
+            System.out.println(bird);
+        }
 
 
     }

@@ -3,7 +3,7 @@ package ru.blogspot.feomatr.lab.jaxb;
 import java.io.File;
 
 /**
- * Created by feo on 08.01.15.
+ * Created by iipolovinkin on 08.01.15.
  */
 public class DemoJAXB {
 

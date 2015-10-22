@@ -11,7 +11,7 @@ import org.apache.pivot.wtk.VerticalAlignment;
 import org.apache.pivot.wtk.Window;
 
 /**
- * Created by feo on 25.11.14.
+ * Created by iipolovinkin on 25.11.14.
  */
 public class JavaPivot implements Application {
     private Window window = null;

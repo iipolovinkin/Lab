@@ -7,8 +7,6 @@ import java.util.Calendar;
 import java.util.Formatter;
 
 /**
- * TODO: comment
- *
  * @author iipolovinkin
  * @since 25.04.2015
  */

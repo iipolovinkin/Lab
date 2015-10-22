@@ -5,7 +5,7 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import java.util.Arrays;
 
 /**
-* Created by feo on 02.01.15.
+* Created by iipolovinkin on 02.01.15.
 */
 public class EmployeeOmitedAge extends  Employee{
     @XStreamOmitField
