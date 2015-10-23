@@ -1,5 +1,6 @@
 package ru.blogspot.feomatr.lab.commons;
 
+import com.google.common.base.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +15,7 @@ public class StringDemo {
     private static final Logger log = LoggerFactory.getLogger(StringDemo.class);
 
     public static void main(String[] args) {
+		googleStrings();
         useFormatter();
     }
 
@@ -34,4 +36,13 @@ public class StringDemo {
             return;
         }
     }
+
+    static void googleStrings(){
+		String strX5 = Strings.repeat("str", 5);
+		System.out.println("strX5 = " + strX5);
+		System.out.println("Strings.emptyToNull(\"    \") = " + Strings.emptyToNull(""));
+		System.out.println("Strings.nullToEmpty(null) = '" + Strings.nullToEmpty(null)+"'");;
+		System.out.println("Strings.padStart(\"World\", 10, '#') = " + Strings.padStart("World", 10, '#'));;
+		System.out.println("Strings.padEnd(\"World\", 10, '#') = " + Strings.padEnd("World", 10, '#'));;
+	}
 }
