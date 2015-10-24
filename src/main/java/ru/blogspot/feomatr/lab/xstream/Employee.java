@@ -1,15 +1,15 @@
 package ru.blogspot.feomatr.lab.xstream;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamImplicit;
-import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
 * Created by iipolovinkin on 02.01.15.
 */
-public class Employee {
+public class Employee implements Serializable{
     private String firstName;
     private String secondName;
     private int age;
@@ -57,4 +57,34 @@ public class Employee {
                 ", nickNames=" + Arrays.toString(nickNames) +
                 '}';
     }
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+
+		Employee employee = (Employee) o;
+
+		return new EqualsBuilder()
+				.append(age, employee.age)
+				.append(firstName, employee.firstName)
+				.append(secondName, employee.secondName)
+				.append(nickNames, employee.nickNames)
+				.isEquals();
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder(17, 37)
+				.append(firstName)
+				.append(secondName)
+				.append(age)
+				.append(nickNames)
+				.toHashCode();
+	}
 }

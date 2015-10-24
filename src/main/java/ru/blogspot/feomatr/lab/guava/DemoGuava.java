@@ -24,7 +24,7 @@ public class DemoGuava {
         e.add(new Employee("Jane", "Smith", 18, new String[]{"thingirl", "stranger", "crow"}));
         e.add(new Employee("Ivan", "Sidorov", 25, new String[]{"fatboy", "stranger", "Turkey"}));
         e.add(new Employee("Nikolay", "Sidorov", 65, new String[]{"thinboy", "stranger", "Woodpecker"}));
-        e.add(new Employee("Dmitriy", "Trishechkin", 35, new String[]{"fatboy", "stranger", "Rawen"}));
+        e.add(new Employee("Dmitriy", "Vostok", 35, new String[]{"fatboy", "stranger", "Rawen"}));
 
 
 
