@@ -1,4 +1,4 @@
-package ru.blogspot.feomatr.lab.xstream;
+package ru.blogspot.feomatr.lab.serialization.xstream;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

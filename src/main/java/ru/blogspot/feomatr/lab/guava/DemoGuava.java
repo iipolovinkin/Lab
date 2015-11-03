@@ -5,13 +5,11 @@ import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
-import ru.blogspot.feomatr.lab.xstream.Employee;
+import ru.blogspot.feomatr.lab.serialization.xstream.Employee;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.google.common.collect.Iterators.filter;
-import static com.google.common.collect.Lists.transform;
 
 
 /**

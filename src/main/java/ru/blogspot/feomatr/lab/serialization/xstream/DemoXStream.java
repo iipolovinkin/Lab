@@ -1,4 +1,4 @@
-package ru.blogspot.feomatr.lab.xstream;
+package ru.blogspot.feomatr.lab.serialization.xstream;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;

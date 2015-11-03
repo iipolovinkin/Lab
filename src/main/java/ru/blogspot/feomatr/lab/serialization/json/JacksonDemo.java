@@ -1,11 +1,11 @@
-package ru.blogspot.feomatr.lab.formats.json;
+package ru.blogspot.feomatr.lab.serialization.json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Preconditions;
 import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.blogspot.feomatr.lab.xstream.Employee;
+import ru.blogspot.feomatr.lab.serialization.xstream.Employee;
 
 import java.io.IOException;
 import java.io.StringWriter;

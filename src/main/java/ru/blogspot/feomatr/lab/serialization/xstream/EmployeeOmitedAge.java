@@ -1,8 +1,6 @@
-package ru.blogspot.feomatr.lab.xstream;
+package ru.blogspot.feomatr.lab.serialization.xstream;
 
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
-
-import java.util.Arrays;
 
 /**
 * Created by iipolovinkin on 02.01.15.

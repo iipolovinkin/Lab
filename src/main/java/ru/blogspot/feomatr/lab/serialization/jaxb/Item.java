@@ -1,4 +1,4 @@
-package ru.blogspot.feomatr.lab.jaxb;
+package ru.blogspot.feomatr.lab.serialization.jaxb;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

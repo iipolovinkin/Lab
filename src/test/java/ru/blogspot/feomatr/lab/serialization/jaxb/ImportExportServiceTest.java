@@ -1,4 +1,4 @@
-package ru.blogspot.feomatr.lab.jaxb;
+package ru.blogspot.feomatr.lab.serialization.jaxb;
 
 import com.google.common.collect.Maps;
 import org.junit.Before;

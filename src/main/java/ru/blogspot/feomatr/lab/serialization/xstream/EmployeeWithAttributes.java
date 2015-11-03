@@ -1,9 +1,6 @@
-package ru.blogspot.feomatr.lab.xstream;
+package ru.blogspot.feomatr.lab.serialization.xstream;
 
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
-import com.thoughtworks.xstream.annotations.XStreamConverters;
-
-import java.util.Arrays;
 
 /**
 * Created by iipolovinkin on 02.01.15.
