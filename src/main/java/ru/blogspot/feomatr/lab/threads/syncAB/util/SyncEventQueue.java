@@ -38,7 +38,7 @@ public class SyncEventQueue implements EventQueue {
 		return null;
 	}
 
-	public Event pop() {
+	private Event pop() {
 		if (list.isEmpty()) {
 			return null;
 		}

@@ -2,8 +2,8 @@ package ru.blogspot.feomatr.lab.threads.syncAB.devices;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.blogspot.feomatr.lab.threads.syncAB.util.SyncEventQueue;
 import ru.blogspot.feomatr.lab.threads.syncAB.events.DataAEvent;
+import ru.blogspot.feomatr.lab.threads.syncAB.util.SyncEventQueue;
 
 /**
  * @author iipolovinkin
@@ -36,7 +36,11 @@ public class DeviceA {
 		return null;
 	}
 
-	private void start() {
+	public void start() {
+		innerStart();
+	}
+
+	private void innerStart() {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -44,6 +48,11 @@ public class DeviceA {
 					String string = null;
 					try {
 						string = readData();
+						if (string == null) {
+							//data ended
+							queue.push(new DataAEvent(string));
+							return;
+						}
 					} catch (InterruptedException e) {
 						// открыт вопрос обработки исключений
 						log.error("", e);

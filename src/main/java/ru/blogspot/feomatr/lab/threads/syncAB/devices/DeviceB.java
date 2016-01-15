@@ -2,8 +2,8 @@ package ru.blogspot.feomatr.lab.threads.syncAB.devices;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.blogspot.feomatr.lab.threads.syncAB.util.SyncEventQueue;
 import ru.blogspot.feomatr.lab.threads.syncAB.events.DataBEvent;
+import ru.blogspot.feomatr.lab.threads.syncAB.util.SyncEventQueue;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,7 +42,11 @@ public class DeviceB {
 		return null;
 	}
 
-	private void start() {
+	public void start() {
+		innerStart();
+	}
+
+	private void innerStart() {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -50,6 +54,11 @@ public class DeviceB {
 					List<Integer> list = null;
 					try {
 						list = readData();
+						if (list == null) {
+							//data ended
+							queue.push(new DataBEvent(list));
+							return;
+						}
 					} catch (InterruptedException e) {
 						// открыт вопрос обработки исключений
 						log.error("", e);
