@@ -37,4 +37,6 @@
 
     <bean id="stringFromBean" factory-bean="redBox" factory-method="toString"/>
 
+    <bean class="ru.blogspot.feomatr.lab.spring.MyApplicationListener" id="contextRefreshedListener"/>
+
 </beans>
