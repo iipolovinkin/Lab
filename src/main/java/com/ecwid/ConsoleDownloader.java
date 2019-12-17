@@ -1,6 +1,6 @@
 package com.ecwid;
 
-import com.beust.jcommander.internal.Maps;
+import com.google.common.collect.Maps;
 import org.apache.commons.io.FileUtils;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;

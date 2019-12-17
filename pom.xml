@@ -5,13 +5,13 @@
 	<groupId>ru.blogspot.feomatr</groupId>
 	<artifactId>Lab</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<modules>
+		<module>school</module>
+	</modules>
 	<packaging>pom</packaging>
 
 	<name>Lab</name>
 	<url>http://maven.apache.org</url>
-	<modules>
-		<module>digrid</module>
-	</modules>
 
 	<properties>
 		<kotlin.version>1.0.0</kotlin.version>
@@ -37,7 +37,7 @@
 
 		<jackson-core.version>2.6.3</jackson-core.version>
 
-		<lombok.version>1.14.8</lombok.version>
+		<lombok.version>1.18.2</lombok.version>
 
 		<springframework.version>4.1.5.RELEASE</springframework.version>
 		<postgresql.version>9.4-1201-jdbc41</postgresql.version>
