@@ -15,17 +15,14 @@ public class ThreadPoolExecutorDemo1 {
         threadPoolExecutor.shutdown();
     }
 
-    private static Runnable createRunnable(final Integer num) {
-        return new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    TimeUnit.SECONDS.sleep(4);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("finish num = " + num);
+    private static Runnable createRunnable(int num) {
+        return () -> {
+            try {
+                TimeUnit.SECONDS.sleep(4);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            System.out.println("finish num = " + num);
         };
     }
 }
