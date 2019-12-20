@@ -38,11 +38,17 @@ public class LockDemo {
         Thread thread1 = new Thread(getRunnableLock(1));
         thread1.start();
         mSleep(100);
-        Thread thread2 = new Thread(getRunnableLockInterruptibly(2));
+        Thread thread2 = new Thread(getRunnableLock(2));
         thread2.start();
         mSleep(20);
         System.out.println("thread2.isInterrupted() = " + thread2.isInterrupted());
         thread2.interrupt();
+        System.out.println("thread2.isInterrupted() = " + thread2.isInterrupted());
+//        try {
+//            Thread.sleep(10_0000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
     private static void mSleep(int timeOut) {
@@ -199,7 +205,7 @@ public class LockDemo {
                 System.out.printf("Worker %s. InterruptedException блокировка захвачена: %s\n", num, b);
                 e.printStackTrace();
             } finally {
-                if(b ) {
+                if (b) {
                     System.out.printf("Worker %s Освобождает блокировку.\n", num);
                     lock.unlock();
                 }

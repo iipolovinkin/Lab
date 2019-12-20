@@ -1,14 +1,24 @@
 package lab.concurrent;
 
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class ThreadPoolExecutorDemo1 {
     public static void main(String[] args) {
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 5, 10_000, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(10));
+        Executors.newSingleThreadExecutor();
+    }
+    public static void main0(String[] args) {
+        ArrayBlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<>(1);
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
+                3,
+                5,
+                10_000,
+                TimeUnit.SECONDS,
+                workQueue);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 6; i++) {
             threadPoolExecutor.submit(createRunnable(i));
         }
 
