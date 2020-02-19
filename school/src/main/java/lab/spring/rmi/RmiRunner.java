@@ -1,7 +1,5 @@
 package lab.spring.rmi;
 
-import java.rmi.AlreadyBoundException;
-import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -15,6 +13,7 @@ public class RmiRunner {
 
             Registry registry = getRegistry(true);
             registry.bind("Hello", stub);
+            registry.rebind("Hello", stub);
             System.out.println("registry = " + registry);
             registry.unbind("Hello");
             UnicastRemoteObject.unexportObject(obj, false);
@@ -26,9 +25,14 @@ public class RmiRunner {
 
     private static Registry getRegistry(boolean inMemoryRegistry) throws RemoteException {
         if (inMemoryRegistry) {
+
             return LocateRegistry.createRegistry(1099);
+
         } else {
-            //          start rmiregistry -J-D-java.rmi.server.codebase=file:///C:\IT\projects\github\Lab\school\target\school-0.0.1-SNAPSHOT.jar
+
+            // start rmiregistry -J-D-java.rmi.server.codebase=file:///C:\IT\projects\github\Lab\school\target\school-0.0.1-SNAPSHOT.jar
+            // start rmiregistry -J-D-java.rmi.server.codebase=file:///C:\Users\sbt-polovinkin-ii\projects\Lab\school\target\school-0.0.1-SNAPSHOT.jar
+
             return LocateRegistry.getRegistry();
         }
     }
