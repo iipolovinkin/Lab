@@ -14,15 +14,13 @@ public class LockDemo {
     public static Lock lock = new ReentrantLock();
     public static int THREAD_COUNT = 3;
 
-    public static void main(String[] args) {
-        main0();
-    }
+
 
     public static void main1(String[] args) throws InterruptedException {
         Collection<Callable<Object>> tasks = new ArrayList<>();
 
         for (int i = 0; i < THREAD_COUNT; i++) {
-//            tasks.add(Executors.callable(getRunnableLock(i + 1)));
+            tasks.add(Executors.callable(getRunnableLock(i + 1)));
 //            tasks.add(Executors.callable(getRunnableTryLock(i + 1)));
 //            tasks.add(Executors.callable(getRunnableTryLockTime(i + 1)));
 //            tasks.add(Executors.callable(getRunnableLockInterruptibly(i + 1)));
@@ -113,38 +111,6 @@ public class LockDemo {
             } finally {
                 System.out.printf("Worker %s Освобождает блокировку.\n", num);
                 lock.unlock();
-            }
-        };
-    }
-
-    private static Runnable getRunnableTryLockTime(int num) {
-        return () -> {
-            System.out.printf("Worker %s в ожидании блокировки\n", num);
-            boolean tryLock = false;
-            try {
-                if (lock.tryLock(1, TimeUnit.SECONDS)) tryLock = true;
-                else tryLock = false;
-                if (!tryLock) {
-                    System.out.printf("\nWorker %s не захватил блокировку. \n", num);
-                    return;
-                }
-
-                TimeUnit.MILLISECONDS.sleep(300);
-                if (sharedObject == 0) {
-                    System.out.println();
-                }
-                System.out.printf("Worker %s захватил блокировку. ", num);
-                sharedObject += 1;
-                System.out.printf("Worker %s Установил результат %s. ", num, sharedObject);
-                TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } finally {
-                if (tryLock) {
-                    System.out.printf("Worker %s Освобождает блокировку.\n", num);
-                    lock.unlock();
-                }
-
             }
         };
     }
