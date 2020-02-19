@@ -5,7 +5,10 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-public class RmiRunner {
+/**
+ * Класс для запуска или получения rmiService. В сервисе региструруется Server.
+ */
+public class RmiServerRunner {
     public static void main(String[] args) {
         try {
             ServerImpl obj = new ServerImpl();
@@ -15,8 +18,8 @@ public class RmiRunner {
             registry.bind("Hello", stub);
             registry.rebind("Hello", stub);
             System.out.println("registry = " + registry);
-            registry.unbind("Hello");
-            UnicastRemoteObject.unexportObject(obj, false);
+//            registry.unbind("Hello");
+//            UnicastRemoteObject.unexportObject(obj, false);
 
         } catch (Exception e) {
             e.printStackTrace();
