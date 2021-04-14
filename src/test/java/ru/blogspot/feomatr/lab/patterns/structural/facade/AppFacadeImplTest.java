@@ -6,7 +6,7 @@ import org.junit.Test;
  * @author iipolovinkin
  * @since 04.08.2015
  */
-public class AppFacadeTest {
+public class AppFacadeImplTest {
 
     @Test
     public void testMain() throws Exception {

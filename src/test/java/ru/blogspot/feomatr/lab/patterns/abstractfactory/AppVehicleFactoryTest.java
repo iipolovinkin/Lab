@@ -6,7 +6,7 @@ import org.junit.Test;
  * @author iipolovinkin
  * @since 30.07.2015
  */
-public class AppCarFactoryTest {
+public class AppVehicleFactoryTest {
 
     @Test
     public void test() {

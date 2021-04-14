@@ -6,11 +6,11 @@ import org.junit.Test;
  * @author iipolovinkin
  * @since 30.07.2015
  */
-public class AppBuilderTest {
+public class ClientBuilderTest {
 
     @Test
     public void test() throws Exception {
         String[] args = {};
-        AppBuilder.main(args);
+        ClientBuilder.main(args);
     }
 }
