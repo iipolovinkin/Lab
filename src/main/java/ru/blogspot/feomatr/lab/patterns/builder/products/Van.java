@@ -1,9 +1,7 @@
-package ru.blogspot.feomatr.lab.patterns.builder;
+package ru.blogspot.feomatr.lab.patterns.builder.products;
 
-import ru.blogspot.feomatr.lab.patterns.abstractfactory.products.Body;
-import ru.blogspot.feomatr.lab.patterns.abstractfactory.products.Chassis;
-import ru.blogspot.feomatr.lab.patterns.abstractfactory.products.Engine;
-import ru.blogspot.feomatr.lab.patterns.abstractfactory.products.Transmission;
+import lombok.Setter;
+import ru.blogspot.feomatr.lab.patterns.abstractfactory.products.*;
 
 /**
  * Product. Complex product, consists of few parts.
@@ -11,51 +9,45 @@ import ru.blogspot.feomatr.lab.patterns.abstractfactory.products.Transmission;
  * @author iipolovinkin
  * @since 30.07.2015
  */
-public class Car {
+@Setter
+public class Van implements Vehicle {
     private Engine engine;
     private Body body;
     private Transmission transmission;
     private Chassis chassis;
+    private ClimateControlSystem climateControlSystem;
+    private Sunroof sunroof;
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "Van{" +
                 "engine=" + engine +
                 ", body=" + body +
                 ", transmission=" + transmission +
                 ", chassis=" + chassis +
+                ", climateControlSystem=" + climateControlSystem +
+                ", sunroof=" + sunroof +
                 '}';
-    }
-
-    public Engine getEngine() {
-        return engine;
     }
 
     public void setEngine(Engine engine) {
         this.engine = engine;
     }
 
-    public Body getBody() {
-        return body;
-    }
-
     public void setBody(Body body) {
         this.body = body;
-    }
-
-    public Transmission getTransmission() {
-        return transmission;
     }
 
     public void setTransmission(Transmission transmission) {
         this.transmission = transmission;
     }
 
-    public Chassis getChassis() {
-        return chassis;
-    }
 
     public void setChassis(Chassis chassis) {
         this.chassis = chassis;
+    }
+
+    public void setSunroof(Sunroof sunroof) {
+        this.sunroof = sunroof;
     }
 }
