@@ -6,32 +6,28 @@ import ru.blogspot.feomatr.lab.patterns.abstractfactory.products.Engine;
 import ru.blogspot.feomatr.lab.patterns.abstractfactory.products.Transmission;
 
 /**
- * The example uses both concrete implementations to create an engine, a chassis, a body and a transmission.
+ * The example uses both concrete implementations to create an engine, a chassis, a body.
  *
- * @author iipolovinkin
- * @since 30.07.2015
  */
 public class AppCarFactory {
     public static void main(String[] args) {
         AppCarFactory appCarFactory = new AppCarFactory();
 
-        appCarFactory.createCar(new VazCarFactoryImpl());
+        appCarFactory.createCar(new VanVehicleFactoryImpl());
         System.out.println();
-        appCarFactory.createCar(new BmwCarFactoryImpl());
+        appCarFactory.createCar(new CarVehicleFactoryImpl());
     }
 
-    private void createCar(CarFactory carFactory) {
-        Body body = carFactory.createBody();
-        Engine engine = carFactory.createEngine();
-        Chassis chassis = carFactory.createChassis();
-        Transmission transmission = carFactory.createTransmission();
+    private void createCar(VehicleFactory vehicleFactory) {
+        Body body = vehicleFactory.createBody();
+        Engine engine = vehicleFactory.createEngine();
+        Chassis chassis = vehicleFactory.createChassis();
 
-        System.out.println("The car was created");
+        System.out.println("The vehicle was created");
 
-        System.out.println(body);
-        System.out.println(engine);
+        System.out.print(body);
+        System.out.print(engine);
         System.out.println(chassis);
-        System.out.println(transmission);
     }
 
 }

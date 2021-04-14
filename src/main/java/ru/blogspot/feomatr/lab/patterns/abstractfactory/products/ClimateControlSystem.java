@@ -1,4 +1,4 @@
 package ru.blogspot.feomatr.lab.patterns.abstractfactory.products;
 
-public interface Body {
+public interface ClimateControlSystem {
 }
