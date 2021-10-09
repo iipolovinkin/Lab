@@ -17,6 +17,7 @@ public class RedisBackedCacheTest {
     String version = "6.2.6-alpine";
     String fullImageName = "redis:" + version;
 
+    //for debug information use debug root level in logback-test.xml
     @Rule
     public GenericContainer redis = new GenericContainer(DockerImageName.parse(fullImageName))
             .withExposedPorts(6379);
