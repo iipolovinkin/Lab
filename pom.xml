@@ -7,6 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<modules>
 		<module>school</module>
+		<module>test-tools</module>
 	</modules>
 	<packaging>pom</packaging>
 
@@ -43,9 +44,16 @@
 		<postgresql.version>9.4-1201-jdbc41</postgresql.version>
 
 		<maven.compiler.plugin.version>2.5.1</maven.compiler.plugin.version>
+
+		<jedis.version>3.7.0</jedis.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>${jedis.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
