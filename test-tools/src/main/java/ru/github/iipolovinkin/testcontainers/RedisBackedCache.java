@@ -3,6 +3,9 @@ package ru.github.iipolovinkin.testcontainers;
 import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.Jedis;
 
+/**
+ * https://www.testcontainers.org/quickstart/junit_4_quickstart/
+ */
 @Slf4j
 public class RedisBackedCache {
     private Jedis jedis;
@@ -17,7 +20,8 @@ public class RedisBackedCache {
     }
 
     public String get(String key) {
-        log.info("get value by key: {}", key);
-        return jedis.get(key);
+        String value = jedis.get(key);
+        log.info("get value by key: {}, value: {}", key, value);
+        return value;
     }
 }
