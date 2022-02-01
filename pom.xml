@@ -30,7 +30,7 @@
 		<guava.version>18.0</guava.version>
 
 		<jetbrains.annotations.version>12.0</jetbrains.annotations.version>
-		<xstream.version>1.4.7</xstream.version>
+		<xstream.version>1.4.19</xstream.version>
 
 		<jaxb-api.version>2.1</jaxb-api.version>
 		<jaxb-impl.version>2.1.14</jaxb-impl.version>
