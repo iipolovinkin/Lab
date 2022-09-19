@@ -1,35 +1,32 @@
 package ru.github.iipolovinkin.testcontainers;
 
-import lombok.extern.slf4j.Slf4j;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
 
-import static org.junit.Assert.assertEquals;
-
-/**
- * https://www.testcontainers.org/quickstart/junit_4_quickstart/
- */
-@Slf4j
-public class RedisBackedCacheTest {
+@Testcontainers
+public class RedisBackedCacheIntTest {
     String version = "6.2.6-alpine";
     String fullImageName = "redis:" + version;
 
-    //for debug information use debug root level in logback-test.xml
-    @Rule
+    // container {
+    @Container
     public GenericContainer redis = new GenericContainer(DockerImageName.parse(fullImageName))
             .withExposedPorts(6379);
-
     private RedisBackedCache underTest;
 
-    @Before
+    // }
+
+    @BeforeEach
     public void setUp() {
         String address = redis.getHost();
         Integer port = redis.getFirstMappedPort();
-        log.info("address = {}, port = {}", address, port);
+
+        // Now we have an address and port for Redis, no matter where it is running
         underTest = new RedisBackedCache(address, port);
     }
 
@@ -38,6 +35,6 @@ public class RedisBackedCacheTest {
         underTest.put("test", "example");
 
         String retrieved = underTest.get("test");
-        assertEquals("example", retrieved);
+        Assertions.assertEquals("example", retrieved);
     }
 }
