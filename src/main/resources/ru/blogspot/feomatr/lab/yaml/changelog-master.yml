@@ -1,0 +1,49 @@
+databaseChangeLog:
+    - include:
+          - file: initial/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v1.2.3/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v1.2.5/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v1.2.5/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v1.2.7/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v1.4/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v1.5/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v1.7/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v1.9/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v2.3/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v2.4/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v2.8/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v2.11/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v2.12/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v2.18/changes.sql
+          - relativeToChangelogFile: true
+    - include:
+          - file: v2.19/changes.sql
+          - relativeToChangelogFile: true
