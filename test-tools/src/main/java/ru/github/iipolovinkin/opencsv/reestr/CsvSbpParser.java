@@ -1,4 +1,4 @@
-package ru.github.iipolovinkin.opencsv.sbpReestr;
+package ru.github.iipolovinkin.opencsv.reestr;
 
 import com.google.common.collect.Lists;
 import com.opencsv.bean.CsvToBean;
@@ -7,6 +7,7 @@ import lombok.SneakyThrows;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -26,7 +27,7 @@ public class CsvSbpParser {
 
     @SneakyThrows
     private CsvToBean<SbpBean> buildCsvToBean(Path path) {
-        InputStreamReader reader = new InputStreamReader(Files.newInputStream(path), "windows-1251");
+        InputStreamReader reader = new InputStreamReader(Files.newInputStream(path), Charset.forName("cp1251"));
         return new CsvToBeanBuilder<SbpBean>(reader)
                 .withSeparator(';')
                 .withIgnoreEmptyLine(true)

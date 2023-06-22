@@ -1,4 +1,4 @@
-package ru.github.iipolovinkin.opencsv.sbpReestr;
+package ru.github.iipolovinkin.opencsv.reestr;
 
 import com.opencsv.bean.CsvBindByName;
 import lombok.AllArgsConstructor;

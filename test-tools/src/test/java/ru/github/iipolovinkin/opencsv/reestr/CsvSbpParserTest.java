@@ -1,4 +1,4 @@
-package ru.github.iipolovinkin.opencsv.sbpReestr;
+package ru.github.iipolovinkin.opencsv.reestr;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
