@@ -16,15 +16,11 @@ import java.util.List;
  */
 public class CsvSbpParser {
     public List<SbpBean> parseOneThread(Path path) {
-        CsvToBean<SbpBean> csvToBean = buildCsvToBean(path);
-
-        return getOneThreadSbpBeans(csvToBean);
+        return getOneThreadSbpBeans(buildCsvToBean(path));
     }
 
     public List<SbpBean> parseMultiThread(Path path) {
-        CsvToBean<SbpBean> csvToBean = buildCsvToBean(path);
-
-        return csvToBean.parse();
+        return buildCsvToBean(path).parse();
     }
 
 
